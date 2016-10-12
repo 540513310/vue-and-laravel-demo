@@ -1,0 +1,27 @@
+.placeholder {
+  margin-top: 54px;
+}
+@media screen and (min-width: 768px) {
+  .xj-nav li.active {
+    border-bottom: solid 3px darkturquoise;
+  }
+}
+.xj-nav ul.xj-ul li:hover:not(.active) {
+  border-bottom: solid 3px darkturquoise;
+}
+.xj-nav ul.xj-ul:hover li.active {
+  border-bottom: solid 3px transparent;
+}
+.xj-nav ul.xj-ul li.active:hover {
+  border-bottom: solid 3px darkturquoise;
+}
+.mainpage .multi-logo {
+  margin-top: 3em;
+  text-align: center;
+}
+.mainpage .carousel-indicators {
+  background: linear-gradient(90deg, transparent 30%, rgba(1, 1, 1, 0.5) 50%, transparent 70%);
+}
+.grid-test div {
+  border: solid thin;
+}

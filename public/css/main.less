@@ -1,0 +1,50 @@
+.placeholder {
+  margin-top: 54px;
+}
+
+.xj-nav {
+
+  li.active {
+    @media screen {
+      @media (min-width: 768px) {
+        border-bottom: solid 3px darkturquoise;
+      }
+    }
+  }
+
+  ul.xj-ul {
+    li:hover:not(.active) {
+        border-bottom: solid 3px darkturquoise;
+    }
+
+    &:hover li.active {
+      border-bottom: solid 3px transparent;
+    }
+
+    li.active:hover {
+      border-bottom: solid 3px darkturquoise;
+    }
+
+
+  }
+
+}
+
+.mainpage {
+
+  .multi-logo {
+    margin-top: 3em;
+    text-align: center;
+  }
+
+  .carousel-indicators {
+    background: linear-gradient(90deg, transparent 30%, rgba(1,1,1,0.5) 50%, transparent 70%);
+  }
+}
+
+
+.grid-test {
+  div {
+    border: solid thin;
+  }
+}

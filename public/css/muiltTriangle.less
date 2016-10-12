@@ -1,0 +1,394 @@
+@labelColor: #15bbf9;
+@fontName: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", STXihei, STHeiti, Heiti, SimSun, sans-serif;
+
+body,html {
+  /*display: none;*/
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: font 200ms;
+
+  // 尺寸不对
+  min-width: 300px;
+  min-height: 400px;
+
+  a {
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 1400px) {
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 960px) {
+
+    .main {
+      flex-wrap: wrap;
+
+      #app-img {
+        margin-top: 12em;
+        flex-basis: 100%;
+      }
+
+      #product-detail {
+
+        padding-left: 0;
+        text-align: center;
+
+
+        .head-detail {
+
+          align-self: center;
+          margin-bottom: 1.5em;
+
+          h1 {
+            padding-top: .5em;
+          }
+
+          ul {
+            display: inline-block;
+            margin: auto;
+          }
+
+        }
+
+      }
+
+    }
+  }
+
+  @media screen and (max-width: 690px) {
+
+    font-size: 10px;
+
+    #container {
+
+      .header {
+        top: 3%;
+      }
+
+      .main {
+
+        #app-img {
+          width: 80%;
+          height: auto;
+          padding: 0;
+          margin-top: 6.5em;
+
+
+          //解决 IE margin auto 不居中的BUG
+          text-align: center;
+
+          img {
+            width: 70%;
+            height: 100%;
+            margin: 0 2.5%;
+          }
+
+        }
+
+        #product-detail {
+          text-align: center;
+
+          .head-detail {
+            margin-bottom: 1em;
+            margin-top: 0;
+          }
+        }
+
+      }
+
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+
+    font-size: 8px;
+
+    .main {
+      #app-img {
+        img {
+          width: 90%;
+          height: 100%;
+          margin: 0 2.5%;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+*::selection {
+  color:orangered;
+  background: none;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+  min-width: 240px;
+  position: relative;
+
+
+  .header {
+    position: absolute;
+    left:15%;
+    top:5%;
+    height:5em;
+    line-height: 5em;
+
+
+    img.logo {
+      height: 5em;
+      width: 5em;
+      border-radius: 1em;
+      box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+      vertical-align: middle;
+    }
+
+   h1,h2 {
+     display: inline;
+     color: white;
+     font-family: @fontName;
+     font-weight: 100;
+     height: 5em;
+     margin-left: 0.4em;
+
+    // 微调请用 relative
+    }
+
+   h1 {
+     vertical-align: sub;
+
+   }
+
+    h2 {
+      vertical-align: bottom;
+    }
+  }
+
+
+  #anitOut {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top:0;
+  }
+
+  #noise {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent url('/img/bgz.png') repeat left top;
+    z-index: -1;
+
+  }
+
+}
+
+
+.main {
+  height: 100%;
+  margin: auto;
+  display: flex;
+
+  justify-content: center;
+  align-content: center;
+
+  #app-img {
+    //height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    /* add for IE 8+  */
+    padding-left: 2em;
+    /* add for IE 8+  */
+
+    img {
+      height: 25.5em;
+      width: 45.5em;
+      background-color: aliceblue;
+      border-radius: .8em;
+      box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+
+      .keyframes(fade-in;{
+        0% {
+          opacity: 0;
+          transform: translateX(-2em);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      });
+
+      .animation(fade-in 600ms ease-in);
+    }
+
+  }
+
+
+  #product-detail {
+    //height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3em;
+    max-width: 40em;
+
+    font-family: @fontName;
+    font-weight: 100;
+
+    color: white;
+    position: relative;
+
+    .head-detail {
+      margin-bottom: 3.5em;
+      margin-top: 1.5em;
+      text-shadow: 1px 1px 2px black;
+      align-self: flex-start;
+
+
+      .keyframes(fade-in-r;{
+        0% {
+          opacity: 0;
+          transform: translateX(2em);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      });
+
+      .animation(fade-in-r 600ms ease-in);
+
+      h1 {
+        font-family: @fontName;
+        font-size: 3.6em;
+        font-weight: 400;
+        margin: 0 0 0.1em;
+
+      }
+
+      h2 {
+        font-size: 2.5em;
+        font-weight: 400;
+        margin-top: 0;
+      }
+
+      ul {
+        li {
+          list-style: none;
+          position: relative;
+          margin-bottom: 10px;
+          font-size: 1.5em;
+
+          &:before {
+            content: "";
+            line-height: 1.3em;
+            height: 1em;
+            width: 1em;
+            border-radius: 0.8em;
+            background-color: @labelColor;
+            display: inline-block;
+            position: absolute;
+            left: -1.5em;
+            top: 0.1em;
+          }
+
+        }
+      }
+
+    }
+
+    .download-block  {
+
+      padding-bottom: 1.3em;
+      // 防止两个 button 时折行
+      white-space: nowrap;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+
+      a.down-button {
+        color:white;
+        border: 0;
+        border-radius: 3em;
+        vertical-align: middle;
+        padding: .4em 0;
+        text-align: center;
+        width: 10em;
+        display: inline-block;
+        font-size: 2.2em;
+        font-weight: 100;
+        //flex: 0 0 40%;
+
+        background-color: @labelColor;
+        -webkit-transition: all 300ms;
+        -moz-transition: all  300ms;
+        transition: all 300ms;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255,255,255,0.8);
+          color: @labelColor;
+        }
+      }
+
+      .update-detail {
+        font-family: @fontName;
+        font-size: 1em;
+        font-weight: 100;
+        margin-top: 1.3em;
+        padding-bottom: 1.3em;
+        text-align: center;
+        flex-basis: 40%;
+
+        span {
+          display: block;
+          font-weight: 500;
+
+        }
+      }
+
+    }
+
+  }
+
+}
+
+// utils
+
+// if children float in your block element, plz add this parent block a class "clearfix"
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+
+/**
+ * This is less function construct a animation key frame
+*/
+.keyframes(@name; @arguments) {
+  @-moz-keyframes @name { @arguments(); }
+  @-webkit-keyframes @name { @arguments(); }
+  @keyframes @name { @arguments(); }
+}
+
+.animation(@arguments) {
+  -webkit-animation: @arguments;
+  -moz-animation: @arguments;
+  animation: @arguments;
+}

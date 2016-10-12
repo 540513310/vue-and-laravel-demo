@@ -1,0 +1,27 @@
+#main-content {
+  max-width: 76.25rem;
+  margin: auto;
+  padding-bottom: 1rem;
+}
+#main-content .corps-group .header {
+  border-bottom: dashed 1px rgba(152, 152, 152, 0.81);
+  overflow: hidden;
+}
+#main-content .corps-group .section .figures {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+#main-content .corps-group .section .figures li {
+  flex: 0 0 20%;
+  margin: 20px;
+  text-align: center;
+  padding: 0.4rem;
+  box-sizing: border-box;
+}
+#main-content .corps-group .section .figures li img {
+  width: 200px;
+  vertical-align: bottom;
+  min-width: 100%;
+}
+/*# sourceMappingURL=xj_partners.css.map */

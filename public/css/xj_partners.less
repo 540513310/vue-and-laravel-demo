@@ -1,0 +1,43 @@
+@fontColor: #303030;
+@navActiveColor: #5acaf8;
+@fontName: 'Microsoft YaHei',SansSerif;
+@mainContentWidth: 76.25rem;
+
+#main-content {
+  max-width: @mainContentWidth; // 1200 % 16
+  margin: auto;
+  padding-bottom: 1rem;
+
+  .corps-group {
+
+    .header {
+      border-bottom: dashed 1px rgba(152, 152, 152, 0.81);
+      overflow: hidden;
+    }
+
+    .section {
+      .figures {
+        display: flex;
+        justify-content: space-around;
+        flex-flow: row wrap;
+
+        li {
+          flex: 0 0 20%;
+          margin: 20px;
+          text-align: center;
+          padding: 0.4rem;
+          box-sizing: border-box;
+
+          img {
+            width: 200px;
+            vertical-align: bottom;
+            min-width: 100%;
+          }
+        }
+      }
+    }
+
+  }
+
+
+}

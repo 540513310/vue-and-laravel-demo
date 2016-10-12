@@ -1,0 +1,655 @@
+@fontColor: #303030;
+@navActiveColor: #5acaf8;
+@fontName: 'Microsoft YaHei',Heiti SC,SansSerif;
+@navBarHeight: 4.5rem;
+
+// style reset
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: @fontName;
+  z-index: 1;
+  box-sizing: content-box;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.carousel-indicators {
+  li {
+    border: 1px solid white;
+    transition: width 200ms;
+  }
+
+  .active {
+    width: 20px;
+    background-color: #5acaf8;
+  }
+}
+
+
+
+// author style
+
+body,html {
+  width: 100%;
+  min-width: 960px;
+  max-width: 1920px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+
+}
+
+header#header-bar {
+  width: 100%;
+  min-width: 960px;
+  position: fixed;
+  z-index: 2;
+  background: white;
+
+  div.progress {
+    // 载入进度，做动效
+    width: 100%;
+    height: 0.25rem;
+    background: @navActiveColor;
+    display: none;
+  }
+
+
+  div.castShadow-wrap {
+    background: white;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    border-radius: 0 0 40% 40%;
+    height: 20px;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 0px;
+    z-index: -2;
+  }
+
+  div.nav-wrapper {
+    max-width: 85%;
+    min-width: 920px;
+    margin: 0 auto;
+    min-height: @navBarHeight;
+    height: @navBarHeight;
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 0;
+    transition: all 250ms;
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+
+    &.compress {
+      min-height: 3.5rem;
+      height: 3.5em;
+
+    }
+
+    a.logo {
+      padding-left: 1em;
+      width: 7.5rem;
+      background: url('http://xjxx-website.gz.bcebos.com/resources/index-logo.png') no-repeat 0 0;
+      background-size: cover;
+      background-origin: content-box;
+      background-clip: content-box;
+
+    }
+
+    // safari的 flex可兼容可真奇怪
+    nav.nav {
+      display: flex;
+
+      >ul.items {
+        display: flex;
+
+
+        li {
+          transition: all 400ms;
+          width: 7em; // 108 % 16 ??
+          position: relative; // 为下拉菜单提供定位
+          display: flex;
+          align-items: stretch;
+
+          &[class^=n]:after {
+            content: "";
+            display: inline-block;
+            width: 0;
+            height: 1em;
+            border: solid 1px #717171;
+            border-left: 0;
+            margin: auto;
+          }
+
+          &[class^=n]:last-of-type:after {
+            display: none;
+          }
+
+          &.active {
+            a {
+              color: @navActiveColor;
+              font-weight: 600;
+            }
+          }
+
+          a {
+            flex-basis: 100%;
+            font-size: 1em; // 21 % 16
+            text-decoration: none;
+            color: @fontColor;
+            font-family: @fontName;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            transition: all 300ms;
+            &:hover {
+              background-color: @navActiveColor;
+              color: white;
+            }
+          }
+
+          &.dropdown:hover ul {
+            // 这个地方要重构
+            opacity: 1;
+
+            li {
+              max-height: 3em;
+            }
+          }
+
+          ul.dropdown {
+
+            text-align: center;
+            position: absolute;
+            top:100%;
+            left: 0;
+            box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.2);
+            transition: all 300ms;
+            opacity: 0;
+            overflow: hidden;
+            height: auto;
+            z-index: 1;
+
+            li {
+              transition: all 300ms;
+              background: white;
+              max-height: 0;
+              line-height: 3em;
+              border-top: solid 1px darkgray;
+            }
+          }
+
+        }
+      }
+
+    }
+
+  }
+
+}
+
+
+div.main-banner {
+
+  position: relative;
+  padding-top: 4.5rem;
+  transition: all 350ms;
+
+  &.compress {
+    padding-top: 3.5rem;
+  }
+
+  div.main-placheholder {
+    min-width: 960px;
+    background: white;
+
+    div.main-article-head {
+      position: relative;
+      margin: 0 auto;
+      z-index: 1;
+
+      img {
+        max-width: 100%;
+        vertical-align: bottom;
+      }
+    }
+
+
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    border-radius: 50% 50%;
+    height: 20px;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+  }
+
+}
+
+
+.main-head {
+  margin: 0 auto;
+  position: relative;
+  height: 370px;
+  background: url('http://xjxx-website.gz.bcebos.com/resources/pc-ver-bg.jpg') no-repeat fixed;
+  background-size: cover;
+  overflow: hidden;
+  z-index: 0;
+
+  &.inter-picture- {
+    &n1 {
+      background-image: url('http://xjxx-website.gz.bcebos.com/resources/hair-bg.jpg');
+    }
+
+    &n2 {
+      background-image: url('http://xjxx-website.gz.bcebos.com/resources/craft-bg.jpg');
+    }
+
+    &n3 {
+      background-image: url('http://xjxx-website.gz.bcebos.com/resources/suit-bg.jpg');
+      background-position-y : -265px;
+    }
+
+    &n4 {
+      background-image: url('http://xjxx-website.gz.bcebos.com/resources/business-bg.jpg');
+    }
+  }
+
+  .details {
+    position: relative;
+    left: 50%;
+    width: 30%;
+    padding: 2rem;
+    background: rgba(25, 16, 16, 0.79);
+    border: 2px solid rgba(8, 8, 8, 0.56);
+    border-top: 0;
+    background-clip: padding-box;
+
+
+    h1 {
+      text-align: center;
+      letter-spacing: .2rem;
+      text-indent: 2rem;
+      font-size: 2.5rem;
+      color: #f4f3f1;
+    }
+
+    p {
+      margin-top: 1rem;
+      text-indent: 2rem;
+      color: #ffffff;
+      line-height: 1.5;
+      letter-spacing: .2rem;
+      font-weight: 600;
+    }
+  }
+
+  &:after {
+    content: "";
+    width: 100%;
+    border-radius: 50% 50%;
+    height: 20px;
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: -20px;
+    z-index: -1;
+  }
+
+}
+
+.article-product {
+
+  position: relative;
+
+  &.jewel {
+
+    .product.second {
+      .figureCaption {
+        ul > li {
+          &:first-of-type {
+            align-self: center;
+          }
+
+          &:last-of-type{
+            align-self: flex-end;
+          }
+        }
+      }
+    }
+
+  }
+
+  .product-head {
+    width: 20%;
+    margin: auto;
+    text-align: center;
+    height: 3rem;
+    position: relative;
+
+    &:after {
+      content: "";
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      position: absolute;
+      border-radius: 0 0 1em 1em;
+      transform: perspective(2.5em) scaleY(2.1) rotateX(-30deg);
+      transform-origin: top center;
+      background: rgb(54, 54, 54);
+      z-index: -1;
+    }
+
+    h1 {
+      line-height: 1.7;
+      color: #ffffff;
+      letter-spacing: 0.1rem;
+      text-shadow: 1px 1px 1px rgba(175, 175, 175, 0.74);
+    }
+  }
+
+  .product {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
+    background: white;
+    align-items: stretch;
+
+    &.second {
+
+      background: #363636;
+      padding: 2rem 0;
+
+      .figure {
+        order: 2;
+        margin-left: 4rem;
+
+        iframe {
+
+        }
+      }
+
+      .figureCaption {
+        order: 1;
+        margin-left: 0rem;
+        color: white;
+      }
+
+    }
+
+    .figure {
+      flex: 0 0 40%;
+      align-self: center;
+
+      ul {
+        display: flex;
+        justify-content: space-around;
+        margin-top: .5rem;
+        align-items: center;
+
+        li {
+          flex: 0 0 30%;
+
+          img {
+            max-width: 100%;
+          }
+        }
+      }
+
+    }
+
+    .figureCaption {
+      flex: 0 0 32%;
+      margin-left: 4rem;
+
+      strong {
+        color: orangered;
+      }
+
+      >ul {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        height: 100%;
+
+        >li {
+          &:not(:first-of-type) {
+            margin-top: 1rem;
+          }
+
+          &:nth-of-type(2) {
+            align-self: center;
+          }
+
+          &:nth-of-type(3) {
+            align-self: flex-end;
+          }
+
+          h1 {
+            font-size: 1.8rem;
+            margin: .5rem 0;
+          }
+
+          h2 {
+            font-size: 1.4rem;
+            margin: -0.2rem 0 .5rem;
+
+          }
+
+          li {
+            margin-top: 0.2rem;
+          }
+
+        }
+
+      }
+
+      .about-us {
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        font-size: 1.3rem;
+
+        .sum {
+          text-indent: 2rem;
+        }
+
+        ul {
+          img {
+            max-width: 100%;
+          }
+        }
+
+        .address {
+          text-align: center;
+        }
+      }
+    }
+
+  }
+
+
+}
+
+
+.footer {
+  width: 100%;
+  background: #545454;
+
+  .content {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 1rem;
+
+    .address {
+      color: white;
+
+      p {
+        font-size: 1.1rem;
+        margin-top: .2rem;
+      }
+    }
+
+    .contact {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+
+      span {
+        margin-right: 1rem;
+
+        a {
+          text-decoration: none;
+          color: #5acaf8;
+        }
+      }
+    }
+
+    .copyright {
+      position: relative;
+      color: #7a7a7a;
+      padding: .8rem 0;
+      width: 70%;
+      margin: auto;
+      margin-top: 1.5rem;
+
+      p {
+        margin: 0.1rem 0;
+      }
+
+      .cn {
+        letter-spacing: 0.3rem;
+        font-size: 1.1rem;
+      }
+
+      .en {
+        font-size: 0.6rem;
+        text-indent: -.2rem;
+      }
+
+      .icp {
+        font-size: 0.8rem;
+      }
+
+      &:after {
+        content: "";
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        border-radius: 1em 1em 0 0;
+        transform: perspective(2.5em) scaleY(1.2) rotateX(5deg);
+        transform-origin: bottom center;
+        background: #272727;
+        z-index: -1;
+      }
+    }
+  }
+}
+
+#backTop {
+  height: 3em;
+  width: 3em;
+  position: fixed;
+  z-index: 999;
+  bottom: 4em;
+  right: 4em;
+  border: 1px solid #fff;
+  color: white;
+  background: #373737;
+  text-align: center;
+  cursor: pointer;
+  transition: all 350ms;
+  visibility: hidden;
+  opacity: 0;
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover {
+    background: white;
+    border: 1px solid gray;
+    color: #424242;
+    border-radius: 50%;
+  }
+
+  a {
+    line-height: 1.9;
+    font-family: @fontName;
+    font-size: 2em;
+    font-weight: 200;
+    text-decoration: none;
+    display: block;
+    color:inherit;
+  }
+}
+
+.placeholder {
+  height: 3000px;
+}
+
+// 重置 webkit-scroll bar
+::-webkit-scrollbar {
+  display: block;
+  width: 0.8em;
+  height: 0.8em;
+  transition: all 200ms;
+}
+
+::-webkit-scrollbar-track { // 轨道
+  background: rgba(172, 192, 248, 0.41);
+}
+::-webkit-scrollbar-button { // 上下调节块
+  display: none;
+}
+::-webkit-scrollbar-thumb { // 中间块
+  background: rgba(56, 183, 255, 0.69);
+  border-radius: 0.25em;
+}
+
+
+.bottom-shadow:after {
+  // 设置此阴影的元素 position 必须非 static
+
+  content: "";
+  width: 100%;
+  border-radius: 0 0 40% 40%;
+  height: 20px;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: 0px;
+  z-index: -2;
+}
+
+.mobile-bg {
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: scroll;
+}
